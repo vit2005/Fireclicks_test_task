@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5fff7c5557551c40a8b979ee56c6052, type: 3}
+  m_Name: BarrageMaxTargetsUpgradeConfig
+  m_EditorClassIdentifier: 
+  displayName: BarrageMaxTargets
+  description: BarrageMaxTargets description
+  icon: {fileID: -1556073019, guid: 14fe58b02ec0c0249837c017a6197d95, type: 3}
+  effect: {fileID: 11400000, guid: 8df162aa4759c7341a730ce927f9b94e, type: 2}

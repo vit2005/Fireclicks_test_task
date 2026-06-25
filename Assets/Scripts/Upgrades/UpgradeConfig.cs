@@ -4,7 +4,7 @@ using UnityEngine;
 public class UpgradeConfig : ScriptableObject
 {
     [SerializeField] private string displayName;
-    [SerializeField] [TextArea] private string description;
+    [SerializeField] private string description;
     [SerializeField] private Sprite icon;
     [SerializeField] private UpgradeEffect effect;
 

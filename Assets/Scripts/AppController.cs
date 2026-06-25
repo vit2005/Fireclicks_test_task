@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,7 +9,7 @@ public class AppController : MonoBehaviour
     [SerializeField] private SpellCaster spellCaster;
     [SerializeField] private KillTracker killTracker;
     [SerializeField] private UpgradeScreen upgradeScreen;
-    [SerializeField] private UpgradeConfig[] upgradePool;
+    [SerializeField] private List<UpgradeConfig> upgradePool;
     [SerializeField] private GameObject initialScreenPanel;
     [SerializeField] private GameObject resultScreenPanel;
 

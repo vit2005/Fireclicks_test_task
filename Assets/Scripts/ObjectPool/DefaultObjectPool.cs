@@ -6,6 +6,7 @@ public class DefaultObjectPool : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private int initialPoolSize = 10;
     [SerializeField] private int maxPoolSize = 20;
+    [SerializeField] private Transform spawnParent;
 
     private IObjectPool<GameObject> instancesPool;
 
@@ -14,37 +15,17 @@ public class DefaultObjectPool : MonoBehaviour
         instancesPool = new ObjectPool<GameObject>(CreateInstance, OnGetInstance, OnReleaseInstance, OnDestroyInstance, false, initialPoolSize, maxPoolSize);
     }
 
-#region Private Methods
     private GameObject CreateInstance()
     {
-        GameObject instance = Instantiate(prefab);
+        GameObject instance = Instantiate(prefab, spawnParent);
         instance.SetActive(false);
         return instance;
     }
 
-    private void OnGetInstance(GameObject instance)
-    {
-        instance.SetActive(true);
-    }
+    private void OnGetInstance(GameObject instance) => instance.SetActive(true);
+    private void OnReleaseInstance(GameObject instance) => instance.SetActive(false);
+    private void OnDestroyInstance(GameObject instance) => Destroy(instance);
 
-    private void OnReleaseInstance(GameObject instance)
-    {
-        instance.SetActive(false);
-    }
-
-    private void OnDestroyInstance(GameObject instance)
-    {
-        Destroy(instance);
-    }
-#endregion
-
-    public GameObject GetInstance()
-    {
-        return instancesPool.Get();
-    }
-
-    public void ReleaseInstance(GameObject instance)
-    {
-        instancesPool.Release(instance);
-    }
+    public GameObject GetInstance() => instancesPool.Get();
+    public void ReleaseInstance(GameObject instance) => instancesPool.Release(instance);
 }

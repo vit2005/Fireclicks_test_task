@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
     {
         _isActive = true;
         _gameTime = 0f;
-        _spawnTimer = spawnerConfig.SpawnInterval;
+        _spawnTimer = spawnerConfig.GetSpawnInterval(0f);
     }
 
     public void StopSpawning()
@@ -49,7 +49,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (_spawnTimer <= 0f)
         {
-            _spawnTimer = spawnerConfig.SpawnInterval;
+            _spawnTimer = spawnerConfig.GetSpawnInterval(_gameTime);
             TrySpawn();
         }
     }
