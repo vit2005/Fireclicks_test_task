@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
+    [SerializeField] private Color damagePopupColor = Color.red;
+
     public event Action<int> OnDamaged;
     public event Action OnDeath;
 
@@ -26,6 +28,7 @@ public class Health : MonoBehaviour
 
         _currentHealth = Mathf.Max(0, _currentHealth - amount);
         OnDamaged?.Invoke(amount);
+        DamagePopupPool.Show(transform.position, amount, damagePopupColor);
 
         if (_currentHealth == 0)
         {
