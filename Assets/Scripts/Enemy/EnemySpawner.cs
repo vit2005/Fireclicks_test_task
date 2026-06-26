@@ -119,19 +119,25 @@ public class EnemySpawner : MonoBehaviour
         _activeEnemies.Add(enemy);
         _enemyPoolMap[enemy] = sourcePool;
         enemy.OnDeath += OnEnemyDeath;
+        enemy.OnReadyToReturn += OnEnemyReadyToReturn;
     }
 
     private void OnEnemyDeath(Enemy enemy)
     {
         enemy.OnDeath -= OnEnemyDeath;
         _activeEnemies.Remove(enemy);
+        OnEnemyKilled?.Invoke();
+    }
+
+    private void OnEnemyReadyToReturn(Enemy enemy)
+    {
+        enemy.OnReadyToReturn -= OnEnemyReadyToReturn;
 
         if (_enemyPoolMap.TryGetValue(enemy, out var pool))
         {
             _enemyPoolMap.Remove(enemy);
             enemy.ResetState();
             pool.ReleaseInstance(enemy.gameObject);
-            OnEnemyKilled?.Invoke();
         }
     }
 }

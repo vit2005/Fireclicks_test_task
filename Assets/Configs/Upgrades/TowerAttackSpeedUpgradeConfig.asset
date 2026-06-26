@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: TowerAttackSpeedUpgradeConfig
   m_EditorClassIdentifier: 
   displayName: TowerAttackSpeed
-  description: TowerAttackSpeed description
+  description: Reduces the cooldown of all spells, allowing faster casting.
   icon: {fileID: 2022838308, guid: d2944d593fd359e44bf3a4f47775baeb, type: 3}
   effect: {fileID: 11400000, guid: e9b637b8051ec2345a7f28a3acd5c2cb, type: 2}

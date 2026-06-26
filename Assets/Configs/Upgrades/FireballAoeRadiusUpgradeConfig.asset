@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FireballAoeRadiusUpgradeConfig
   m_EditorClassIdentifier: 
   displayName: FireballAoeRadius
-  description: FireballAoeRadius description
+  description: Increases the explosion radius of Fireball, hitting more enemies.
   icon: {fileID: -681674225, guid: d2944d593fd359e44bf3a4f47775baeb, type: 3}
   effect: {fileID: 11400000, guid: 0edd3c77169037b4682657ae38d4a796, type: 2}

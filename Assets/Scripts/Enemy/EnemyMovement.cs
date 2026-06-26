@@ -28,14 +28,13 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         if (!_active) return;
-
-        float dist = Vector3.Distance(transform.position, _towerTransform.position);
+        Vector3 targetPos = new Vector3(_tower.transform.position.x, transform.position.y, _tower.transform.position.z);
+        float dist = Vector3.Distance(transform.position, targetPos);
 
         if (dist > _stopDistance)
         {
-            Vector3 dir = (_towerTransform.position - transform.position).normalized;
-            transform.position += dir * (_speed * Time.deltaTime);
-            transform.forward = dir;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, _speed * Time.deltaTime);
+            transform.forward = (targetPos - transform.position).normalized;
         }
         else
         {

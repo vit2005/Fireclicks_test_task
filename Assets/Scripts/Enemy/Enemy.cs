@@ -8,14 +8,18 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyMovement movement;
 
     public event Action<Enemy> OnDeath;
+    public event Action<Enemy> OnReadyToReturn;
+
     public Health Health => health;
     public EffectHandler EffectHandler => effectHandler;
 
+    private Vector3 _originalScale;
+
     public void Init(EnemyConfig config, Tower tower)
     {
+        _originalScale = transform.localScale;
         health.Init(config);
         movement.Init(config, tower);
-        transform.localScale = Vector3.one * config.Scale;
         health.OnDeath += HandleDeath;
     }
 
@@ -23,6 +27,12 @@ public class Enemy : MonoBehaviour
     {
         health.OnDeath -= HandleDeath;
         movement.Stop();
+        transform.localScale = _originalScale;
+    }
+
+    public void NotifyReadyToReturn()
+    {
+        OnReadyToReturn?.Invoke(this);
     }
 
     private void HandleDeath()

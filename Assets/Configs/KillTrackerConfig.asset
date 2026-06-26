@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e6e83d3161e52c49a0819943bb80913, type: 3}
-  m_Name: TowerConfig
+  m_Script: {fileID: 11500000, guid: b59a61741e0b1a64fbd6405844fa8d11, type: 3}
+  m_Name: KillTrackerConfig
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  firstMilestone: 5
+  milestoneStep: 2

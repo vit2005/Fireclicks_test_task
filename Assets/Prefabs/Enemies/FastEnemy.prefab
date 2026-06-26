@@ -8,12 +8,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4519696261342240962, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 95669f2eaa965bb47aea3f16a20f4d29, type: 2}
     - target: {fileID: 5124501060748053420, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
       propertyPath: m_Name
       value: FastEnemy
       objectReference: {fileID: 0}
     - target: {fileID: 5224768266164579630, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
       propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5224768266164579630, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
+      propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5224768266164579630, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}

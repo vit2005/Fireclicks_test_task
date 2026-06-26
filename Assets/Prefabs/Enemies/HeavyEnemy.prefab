@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4519696261342240962, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ffee79cb528d80146868d2773a0a4caa, type: 2}
     - target: {fileID: 5124501060748053420, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
       propertyPath: m_Name
       value: HeavyEnemy

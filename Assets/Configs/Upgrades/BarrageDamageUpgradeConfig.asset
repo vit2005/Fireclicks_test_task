@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BarrageDamageUpgradeConfig
   m_EditorClassIdentifier: 
   displayName: BarrageDamage
-  description: BarrageDamage Description
+  description: Increases the damage of each Barrage projectile.
   icon: {fileID: -1534242014, guid: d2944d593fd359e44bf3a4f47775baeb, type: 3}
   effect: {fileID: 11400000, guid: 3298c2055fe7dc64c8896976c3391c53, type: 2}

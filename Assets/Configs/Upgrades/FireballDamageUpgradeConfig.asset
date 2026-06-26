@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FireballDamageUpgradeConfig
   m_EditorClassIdentifier: 
   displayName: FireballDamage
-  description: FireballDamage description
+  description: Increases the explosion damage of Fireball.
   icon: {fileID: -624732777, guid: d2944d593fd359e44bf3a4f47775baeb, type: 3}
   effect: {fileID: 11400000, guid: d226e90575f6afd47a025618efd6aa0d, type: 2}
