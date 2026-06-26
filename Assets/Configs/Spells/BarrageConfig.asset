@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Barrage description
   icon: {fileID: -1556073019, guid: 14fe58b02ec0c0249837c017a6197d95, type: 3}
   cooldown: 2
-  damage: 10
+  damage: 20
   projectileSpeed: 5
   arcHeight: 4
   maxTargets: 1

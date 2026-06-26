@@ -25,9 +25,7 @@ public class SpellCaster : MonoBehaviour
         for (int i = 0; i < spellDefinitions.Count; i++)
         {
             var def = spellDefinitions[i];
-            var instance = Instantiate(def.prefab, transform);
-            _slots[i] = new SpellSlot(def.config, instance);
-            Debug.Log($"[SpellCaster] Slot {i} created: config={def.config?.name}, prefab={def.prefab?.name}");
+            _slots[i] = new SpellSlot(def.config, Instantiate(def.prefab, transform));
         }
     }
 
@@ -42,7 +40,6 @@ public class SpellCaster : MonoBehaviour
             if (slot.CooldownTimer <= 0f)
             {
                 slot.CooldownTimer = slot.Stats.cooldown;
-                Debug.Log($"[SpellCaster] Casting {slot.Config?.name}, targets={targets.Count}, cooldown={slot.Stats.cooldown}");
                 slot.Instance.Cast(transform, slot.Stats, targets);
             }
         }

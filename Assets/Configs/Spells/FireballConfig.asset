@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Fireball
   icon: {fileID: -423616017, guid: 14fe58b02ec0c0249837c017a6197d95, type: 3}
   cooldown: 5
-  damage: 100
+  damage: 20
   projectileSpeed: 5
   aoeRadius: 3
   burnDamage: 5

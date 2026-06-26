@@ -100,8 +100,18 @@ public class EnemySpawner : MonoBehaviour
 
     private Vector3 RandomSpawnPosition()
     {
-        Vector2 circle = UnityEngine.Random.insideUnitCircle.normalized;
-        return new Vector3(circle.x, 0f, circle.y) * spawnerConfig.SpawnRadius;
+        Vector2 dir = UnityEngine.Random.insideUnitCircle.normalized;
+        float radius = spawnerConfig.SpawnRadius;
+
+        for (int i = 0; i < 10; i++)
+        {
+            Vector3 candidate = new Vector3(dir.x, 0f, dir.y) * radius;
+            if (!CameraVisibility.IsVisible(candidate))
+                return candidate;
+            radius *= 1.3f;
+        }
+
+        return new Vector3(dir.x, 0f, dir.y) * radius;
     }
 
     private void RegisterEnemy(Enemy enemy, DefaultObjectPool sourcePool)

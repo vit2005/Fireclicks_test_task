@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Fireball : MonoBehaviour
@@ -6,6 +7,10 @@ public class Fireball : MonoBehaviour
     // Ground GameObject must have tag "Ground"
 
     private const float MaxLifetime = 8f;
+
+    public event Action OnExplode;
+
+    public float AoeRadius => _aoeRadius;
 
     private Vector3 _direction;
     private float _speed;
@@ -35,8 +40,6 @@ public class Fireball : MonoBehaviour
         transform.position += _direction * (_speed * Time.deltaTime);
 
         _lifetime += Time.deltaTime;
-        if (_lifetime >= MaxLifetime)
-            ReturnToPool();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -63,12 +66,14 @@ public class Fireball : MonoBehaviour
             }
         }
 
-        ReturnToPool();
+        if (OnExplode != null)
+            OnExplode.Invoke();
+        else
+            ReturnToPool();
     }
 
-    private void ReturnToPool()
+    public void ReturnToPool()
     {
-        _exploded = true;
         _pool.ReleaseInstance(gameObject);
     }
 }

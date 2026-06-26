@@ -4,14 +4,8 @@ public class FireballSector : MonoBehaviour
 {
     private BoxCollider _collider;
 
-    private void Awake()
-    {
-        _collider = GetComponent<BoxCollider>();
-        if (_collider == null)
-            Debug.LogError($"[FireballSector] {name}: BoxCollider missing");
-    }
+    private void Awake() => _collider = GetComponent<BoxCollider>();
 
-    // Real-time count via OverlapBox — accurate regardless of rotation speed
     public int GetCurrentEnemyCount()
     {
         if (_collider == null) return 0;

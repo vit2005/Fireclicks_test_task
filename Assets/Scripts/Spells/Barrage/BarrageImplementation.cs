@@ -6,11 +6,9 @@ public class BarrageImplementation : SpellImplementation
     [SerializeField] private BarrageConfig barrageConfig;
     [SerializeField] private DefaultObjectPool projectilePool;
 
-    // -1 means use barrageConfig.MaxTargets; upgrades can override this
-    public int RuntimeMaxTargets { get; set; } = -2;
+    public int RuntimeMaxTargets { get; set; }
 
     private readonly List<Enemy> _visibleBuffer = new();
-    private Plane[] _frustumPlanes;
 
     private void Awake() => RuntimeMaxTargets = barrageConfig.MaxTargets;
 
@@ -32,17 +30,10 @@ public class BarrageImplementation : SpellImplementation
     private void BuildVisibleList(IReadOnlyList<Enemy> targets)
     {
         _visibleBuffer.Clear();
-        _frustumPlanes = GeometryUtility.CalculateFrustumPlanes(Camera.main);
 
         foreach (var enemy in targets)
         {
-            if (enemy == null) continue;
-
-            Bounds bounds = enemy.TryGetComponent<Collider>(out var col)
-                ? col.bounds
-                : new Bounds(enemy.transform.position, Vector3.one);
-
-            if (GeometryUtility.TestPlanesAABB(_frustumPlanes, bounds))
+            if (enemy != null && CameraVisibility.IsVisible(enemy.transform.position))
                 _visibleBuffer.Add(enemy);
         }
     }

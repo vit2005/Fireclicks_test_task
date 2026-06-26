@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1738b5eb12cfd584cbe8ff86178eeb95, type: 3}
   m_Name: HeavyEnemyConfig
   m_EditorClassIdentifier: 
-  maxHealthValue: 20
+  maxHealthValue: 100
   speed: 0.5
   damage: 1
   attackRate: 1
   scale: 1
   stopDistance: 1
   weight: 1
-  timeToSpawnAvailable: 10
+  timeToSpawnAvailable: 20

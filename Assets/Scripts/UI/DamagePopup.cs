@@ -1,18 +1,16 @@
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
 public class DamagePopup : MonoBehaviour
 {
     private const float Duration = 1f;
-    private const float FloatHeight = 80f; // pixels on canvas
+    private const float FloatHeight = 80f;
 
     [SerializeField] private TextMeshProUGUI label;
 
     private RectTransform _rectTransform;
     private Canvas _canvas;
-    private float _timer;
-    private Vector2 _startAnchoredPos;
-    private Color _startColor;
     private DamagePopupPool _pool;
 
     private void Awake()
@@ -24,29 +22,21 @@ public class DamagePopup : MonoBehaviour
     public void Show(Vector3 worldPos, int amount, Color color, DamagePopupPool pool)
     {
         _pool = pool;
-        _startColor = color;
-        _timer = 0f;
 
         label.text = amount.ToString();
         label.color = color;
 
-        _startAnchoredPos = WorldToCanvasPosition(worldPos);
-        _rectTransform.anchoredPosition = _startAnchoredPos;
-    }
+        Vector2 startPos = WorldToCanvasPosition(worldPos);
+        _rectTransform.anchoredPosition = startPos;
 
-    private void Update()
-    {
-        _timer += Time.deltaTime;
-        float t = Mathf.Clamp01(_timer / Duration);
+        DOTween.Kill(_rectTransform);
 
-        _rectTransform.anchoredPosition = _startAnchoredPos + Vector2.up * (FloatHeight * t);
+        _rectTransform.DOAnchorPosY(startPos.y + FloatHeight, Duration)
+            .SetEase(Ease.OutQuad);
 
-        Color c = _startColor;
-        c.a = 1f - t;
-        label.color = c;
-
-        if (_timer >= Duration)
-            _pool.Release(this);
+        label.DOFade(0f, Duration)
+            .SetEase(Ease.InQuad)
+            .OnComplete(() => _pool.Release(this));
     }
 
     private Vector2 WorldToCanvasPosition(Vector3 worldPos)
