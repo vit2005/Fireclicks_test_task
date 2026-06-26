@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67e674cebed54b041bc6540569157d12, type: 3}
   m_Name: BarrageDamageUpgrade
   m_EditorClassIdentifier: 
-  damageIncrease: 3
+  damageIncrease: 8

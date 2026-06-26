@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -30,6 +31,8 @@ public class AppController : MonoBehaviour
 
     private void Start()
     {
+        DOTween.SetTweensCapacity(tweenersCapacity: 2000, sequencesCapacity: 50);
+
         _gameContext = new GameContext(spellCaster, tower, enemySpawner);
 
         _initialState = new InitialGameState(this);

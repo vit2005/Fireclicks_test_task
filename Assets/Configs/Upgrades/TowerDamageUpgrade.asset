@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c9abf9112f8c3b4cbec0f1220df1821, type: 3}
   m_Name: TowerDamageUpgrade
   m_EditorClassIdentifier: 
-  damageIncrease: 5
+  damageIncrease: 8

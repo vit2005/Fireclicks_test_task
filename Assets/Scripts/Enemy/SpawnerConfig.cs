@@ -11,9 +11,28 @@ public class SpawnerConfig : ScriptableObject
         new Keyframe(360f, 0.25f)
     );
 
+    [Tooltip("After the curve ends, interval shrinks by this fraction every extrapolationStepSeconds")]
+    [SerializeField] private float extrapolationDecayPerStep = 0.85f;
+
+    [SerializeField] private float extrapolationStepSeconds = 30f;
+
+    [Tooltip("Hard floor so the interval never reaches zero")]
+    [SerializeField] private float minInterval = 0.05f;
+
     [Tooltip("Distance from center at which enemies spawn")]
     [SerializeField] private float spawnRadius = 20f;
 
-    public float GetSpawnInterval(float gameTime) => spawnIntervalOverTime.Evaluate(gameTime);
+    public float GetSpawnInterval(float gameTime)
+    {
+        float curveEnd = spawnIntervalOverTime.keys[spawnIntervalOverTime.length - 1].time;
+
+        if (gameTime <= curveEnd)
+            return spawnIntervalOverTime.Evaluate(gameTime);
+
+        float baseValue = spawnIntervalOverTime.Evaluate(curveEnd);
+        float steps = (gameTime - curveEnd) / extrapolationStepSeconds;
+        return Mathf.Max(minInterval, baseValue * Mathf.Pow(extrapolationDecayPerStep, steps));
+    }
+
     public float SpawnRadius => spawnRadius;
 }

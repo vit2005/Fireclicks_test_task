@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     public Health Health => health;
     public EffectHandler EffectHandler => effectHandler;
+    public int IncomingDamage { get; private set; }
 
     private Vector3 _originalScale;
 
@@ -23,11 +24,16 @@ public class Enemy : MonoBehaviour
         health.OnDeath += HandleDeath;
     }
 
+    public void RegisterIncoming(int damage) => IncomingDamage += damage;
+
+    public void UnregisterIncoming(int damage) => IncomingDamage = Mathf.Max(0, IncomingDamage - damage);
+
     public void ResetState()
     {
         health.OnDeath -= HandleDeath;
         movement.Stop();
         transform.localScale = _originalScale;
+        IncomingDamage = 0;
     }
 
     public void NotifyReadyToReturn()

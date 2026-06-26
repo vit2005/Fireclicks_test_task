@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e6e83d3161e52c49a0819943bb80913, type: 3}
   m_Name: TowerConfig
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  MaxHealth: 150

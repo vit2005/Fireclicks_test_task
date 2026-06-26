@@ -15,7 +15,7 @@ MonoBehaviour:
   spellName: Fireball
   description: Fireball
   icon: {fileID: -423616017, guid: 14fe58b02ec0c0249837c017a6197d95, type: 3}
-  cooldown: 5
+  cooldown: 0.8
   damage: 20
   projectileSpeed: 5
   aoeRadius: 3

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a37bdba5a7c6944a4233b5d296f698, type: 3}
   m_Name: BarrageMaxTargetsUpgrade
   m_EditorClassIdentifier: 
-  additionalTargets: 2
+  additionalTargets: 1

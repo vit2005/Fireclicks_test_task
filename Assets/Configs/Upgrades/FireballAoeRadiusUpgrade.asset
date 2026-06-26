@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638d095767aa6974f967e3c3475aca7e, type: 3}
   m_Name: FireballAoeRadiusUpgrade
   m_EditorClassIdentifier: 
-  radiusIncrease: 1
+  radiusIncrease: 0.5

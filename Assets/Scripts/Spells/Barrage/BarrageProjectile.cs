@@ -21,10 +21,20 @@ public class BarrageProjectile : MonoBehaviour
         _pool = pool;
         _t = 0f;
 
+        _target.RegisterIncoming(_damage);
+        _target.OnDeath += OnTargetDied;
+
         float distance = Vector3.Distance(startPos, _lastTargetPos);
         _flightDuration = Mathf.Max(0.1f, distance / projectileSpeed);
 
         transform.position = startPos;
+    }
+
+    private void OnTargetDied(Enemy enemy)
+    {
+        enemy.OnDeath -= OnTargetDied;
+        enemy.UnregisterIncoming(_damage);
+        _target = null;
     }
 
     private void Update()
@@ -46,7 +56,11 @@ public class BarrageProjectile : MonoBehaviour
     private void OnReachedTarget()
     {
         if (_target != null)
+        {
+            _target.OnDeath -= OnTargetDied;
+            _target.UnregisterIncoming(_damage);
             _target.Health.TakeDamage(_damage);
+        }
 
         _pool.ReleaseInstance(gameObject);
     }

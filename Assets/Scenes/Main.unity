@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -682,8 +682,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 1988251658787955109, guid: 8f6596d17f4b5864b87d346ee8f4e908, type: 3}
-  initialPoolSize: 10
-  maxPoolSize: 20
+  initialPoolSize: 50
+  maxPoolSize: 100
   spawnParent: {fileID: 0}
 --- !u!1 &643765438
 GameObject:
@@ -2184,8 +2184,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 9147865806422875039, guid: 3655abf0e985cfd47bccafb77199c1fd, type: 3}
-  initialPoolSize: 10
-  maxPoolSize: 20
+  initialPoolSize: 50
+  maxPoolSize: 100
   spawnParent: {fileID: 0}
 --- !u!1001 &1438232527
 PrefabInstance:
@@ -2361,8 +2361,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 9176791681563584244, guid: b51fe23085d4183468d3e07620b8e5a0, type: 3}
-  initialPoolSize: 10
-  maxPoolSize: 20
+  initialPoolSize: 50
+  maxPoolSize: 100
   spawnParent: {fileID: 1731949697}
 --- !u!1 &1455452926
 GameObject:
@@ -2409,8 +2409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 5124501060748053420, guid: c5781547ae25bb84e88469f7cd014a8e, type: 3}
-  initialPoolSize: 10
-  maxPoolSize: 20
+  initialPoolSize: 50
+  maxPoolSize: 100
   spawnParent: {fileID: 0}
 --- !u!1 &1469557065
 GameObject:

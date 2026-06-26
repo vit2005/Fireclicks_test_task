@@ -33,7 +33,9 @@ public class BarrageImplementation : SpellImplementation
 
         foreach (var enemy in targets)
         {
-            if (enemy != null && CameraVisibility.IsVisible(enemy.transform.position))
+            if (enemy != null
+                && CameraVisibility.IsVisible(enemy.transform.position)
+                && enemy.Health.CurrentHealth > enemy.IncomingDamage)
                 _visibleBuffer.Add(enemy);
         }
     }

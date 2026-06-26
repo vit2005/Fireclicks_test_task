@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1738b5eb12cfd584cbe8ff86178eeb95, type: 3}
   m_Name: DefaultEnemyConfig
   m_EditorClassIdentifier: 
-  maxHealthValue: 50
+  maxHealthValue: 120
   speed: 1
   damage: 1
   attackRate: 1
