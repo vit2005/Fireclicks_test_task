@@ -733,7 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8399453341342529724}
-  - component: {fileID: 1988075223385461308}
+  - component: {fileID: 8361919994621092935}
   m_Layer: 0
   m_Name: FireballSpawner
   m_TagString: Untagged
@@ -758,7 +758,7 @@ Transform:
   - {fileID: 1969997934883906167}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1988075223385461308
+--- !u!114 &8361919994621092935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -893,7 +893,7 @@ Transform:
   m_GameObject: {fileID: 5416349989203287529}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -914,7 +914,7 @@ MonoBehaviour:
   prefab: {fileID: 7873168543688446428, guid: e3fe927412622f94e9ad56de0255bcd5, type: 3}
   initialPoolSize: 10
   maxPoolSize: 20
-  spawnParent: {fileID: 8399453341342529724}
+  spawnParent: {fileID: 2012495954957786344}
 --- !u!1 &5781132426257090507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1129,7 +1129,7 @@ Transform:
   m_GameObject: {fileID: 5879931518464659281}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

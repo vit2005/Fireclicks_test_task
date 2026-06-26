@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!29 &1
 OcclusionCullingSettings:
@@ -1456,6 +1456,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1019515229}
   m_CullTransparentMesh: 1
+--- !u!1 &1021755955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1021755956}
+  - component: {fileID: 1021755957}
+  m_Layer: 0
+  m_Name: SpellCaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1021755956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021755955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1977832309}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1021755957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1021755955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c734799aa68902642aaf214a1d1d3e0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellDefinitions:
+  - config: {fileID: 11400000, guid: 088392de47b554f40bf896a44fff0e89, type: 2}
+    prefab: {fileID: 602002880068904623, guid: 1d88b74c16f742f4bb68203aace544ca, type: 3}
+  - config: {fileID: 11400000, guid: 7f823f0c6f86b304583ef8abedf7c4e5, type: 2}
+    prefab: {fileID: 8361919994621092935, guid: 489415f3021b6114e95f7d8ff5250602, type: 3}
+  enemySpawner: {fileID: 1469557067}
 --- !u!1 &1064432073
 GameObject:
   m_ObjectHideFlags: 0
@@ -1504,12 +1554,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -2685,6 +2735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectPool: {fileID: 1445497918}
+  maxPerFrame: 5
 --- !u!1 &1801560607
 GameObject:
   m_ObjectHideFlags: 0
@@ -2716,7 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 1977832305}
   enemySpawner: {fileID: 1469557067}
-  spellCaster: {fileID: 1977832310}
+  spellCaster: {fileID: 1021755957}
   killTracker: {fileID: 971997344}
   upgradeScreen: {fileID: 106532572}
   upgradePool:
@@ -2886,7 +2937,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1977832309}
   - component: {fileID: 1977832305}
-  - component: {fileID: 1977832310}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -2923,26 +2973,9 @@ Transform:
   m_Children:
   - {fileID: 1073490595}
   - {fileID: 892194879}
+  - {fileID: 1021755956}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1977832310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1977832303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c734799aa68902642aaf214a1d1d3e0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellDefinitions:
-  - config: {fileID: 11400000, guid: 088392de47b554f40bf896a44fff0e89, type: 2}
-    prefab: {fileID: 602002880068904623, guid: 1d88b74c16f742f4bb68203aace544ca, type: 3}
-  - config: {fileID: 11400000, guid: 7f823f0c6f86b304583ef8abedf7c4e5, type: 2}
-    prefab: {fileID: 1988075223385461308, guid: 489415f3021b6114e95f7d8ff5250602, type: 3}
-  enemySpawner: {fileID: 1469557067}
 --- !u!1 &2042454170
 GameObject:
   m_ObjectHideFlags: 0

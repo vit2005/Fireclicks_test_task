@@ -4,8 +4,8 @@ using UnityEngine;
 public class KillTrackerConfig : ScriptableObject
 {
     [SerializeField] private int firstMilestone = 5;
-    [SerializeField] private int milestoneStep = 3;
+    [SerializeField] private float milestoneStep = 3;
 
     public int FirstMilestone => firstMilestone;
-    public int MilestoneStep => milestoneStep;
+    public float MilestoneStep => milestoneStep;
 }

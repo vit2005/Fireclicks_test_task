@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: KillTrackerConfig
   m_EditorClassIdentifier: 
   firstMilestone: 5
-  milestoneStep: 5
+  milestoneStep: 1.5

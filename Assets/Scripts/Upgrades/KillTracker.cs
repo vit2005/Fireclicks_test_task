@@ -39,7 +39,7 @@ public class KillTracker : MonoBehaviour
         if (_killCount >= _nextMilestone)
         {
             _killCount = 0;
-            _nextMilestone += config.MilestoneStep;
+            _nextMilestone = (int)(_nextMilestone * config.MilestoneStep);
             OnMilestone?.Invoke();
         }
     }

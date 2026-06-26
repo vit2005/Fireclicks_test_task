@@ -16,9 +16,6 @@ public class SpawnerConfig : ScriptableObject
 
     [SerializeField] private float extrapolationStepSeconds = 30f;
 
-    [Tooltip("Hard floor so the interval never reaches zero")]
-    [SerializeField] private float minInterval = 0.05f;
-
     [Tooltip("Distance from center at which enemies spawn")]
     [SerializeField] private float spawnRadius = 20f;
 
@@ -31,7 +28,7 @@ public class SpawnerConfig : ScriptableObject
 
         float baseValue = spawnIntervalOverTime.Evaluate(curveEnd);
         float steps = (gameTime - curveEnd) / extrapolationStepSeconds;
-        return Mathf.Max(minInterval, baseValue * Mathf.Pow(extrapolationDecayPerStep, steps));
+        return baseValue * Mathf.Pow(extrapolationDecayPerStep, steps);
     }
 
     public float SpawnRadius => spawnRadius;

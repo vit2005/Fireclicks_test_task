@@ -20,6 +20,6 @@ public class FireballImplementation : SpellImplementation
 
         GameObject obj = fireballPool.GetInstance();
         if (obj.TryGetComponent<Fireball>(out var fireball))
-            fireball.Init(origin.position, direction, stats.damage, stats.projectileSpeed, fireballConfig, fireballPool, RuntimeAoeRadius);
+            fireball.Init(fireballPool.transform.position, direction, stats.damage, stats.projectileSpeed, fireballConfig, fireballPool, RuntimeAoeRadius);
     }
 }
