@@ -46,7 +46,7 @@ public class Fireball : MonoBehaviour
     {
         if (_exploded) return;
 
-        if (other.TryGetComponent<Enemy>(out _) || other.CompareTag("Ground"))
+        if (other.TryGetComponent<Enemy123>(out _) || other.CompareTag("Ground"))
         {
             _exploded = true;
             Explode();
@@ -58,7 +58,7 @@ public class Fireball : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, _aoeRadius);
         foreach (var hit in hits)
         {
-            if (hit.TryGetComponent<Enemy>(out var enemy))
+            if (hit.TryGetComponent<Enemy123>(out var enemy))
             {
                 enemy.Health.TakeDamage(_damage);
                 enemy.EffectHandler.AddEffect(

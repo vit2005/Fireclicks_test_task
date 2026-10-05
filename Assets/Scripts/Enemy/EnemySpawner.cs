@@ -16,8 +16,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] private Tower tower;
     [SerializeField] private List<EnemyPool> enemiesPools;
 
-    private readonly List<Enemy> _activeEnemies = new();
-    private readonly Dictionary<Enemy, DefaultObjectPool> _enemyPoolMap = new();
+    private readonly List<Enemy123> _activeEnemies = new();
+    private readonly Dictionary<Enemy123, DefaultObjectPool> _enemyPoolMap = new();
     private readonly List<EnemyPool> _availableBuffer = new();
 
     private float _spawnTimer;
@@ -26,7 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
     public event Action OnEnemyKilled;
 
-    public IReadOnlyList<Enemy> ActiveEnemies => _activeEnemies;
+    public IReadOnlyList<Enemy123> ActiveEnemies => _activeEnemies;
 
     public void StartSpawning()
     {
@@ -91,7 +91,7 @@ public class EnemySpawner : MonoBehaviour
     private void SpawnEnemy(EnemyPool entry)
     {
         GameObject obj = entry.pool.GetInstance();
-        if (!obj.TryGetComponent<Enemy>(out var enemy)) return;
+        if (!obj.TryGetComponent<Enemy123>(out var enemy)) return;
 
         obj.transform.position = RandomSpawnPosition();
         enemy.Init(entry.config, tower);
@@ -114,7 +114,7 @@ public class EnemySpawner : MonoBehaviour
         return new Vector3(dir.x, 0f, dir.y) * radius;
     }
 
-    private void RegisterEnemy(Enemy enemy, DefaultObjectPool sourcePool)
+    private void RegisterEnemy(Enemy123 enemy, DefaultObjectPool sourcePool)
     {
         _activeEnemies.Add(enemy);
         _enemyPoolMap[enemy] = sourcePool;
@@ -122,14 +122,14 @@ public class EnemySpawner : MonoBehaviour
         enemy.OnReadyToReturn += OnEnemyReadyToReturn;
     }
 
-    private void OnEnemyDeath(Enemy enemy)
+    private void OnEnemyDeath(Enemy123 enemy)
     {
         enemy.OnDeath -= OnEnemyDeath;
         _activeEnemies.Remove(enemy);
         OnEnemyKilled?.Invoke();
     }
 
-    private void OnEnemyReadyToReturn(Enemy enemy)
+    private void OnEnemyReadyToReturn(Enemy123 enemy)
     {
         enemy.OnReadyToReturn -= OnEnemyReadyToReturn;
 

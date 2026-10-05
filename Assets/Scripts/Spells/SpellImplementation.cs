@@ -3,5 +3,5 @@ using UnityEngine;
 
 public abstract class SpellImplementation : MonoBehaviour
 {
-    public abstract void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy> targets);
+    public abstract void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy123> targets);
 }

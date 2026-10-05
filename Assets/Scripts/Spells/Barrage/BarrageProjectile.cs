@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BarrageProjectile : MonoBehaviour
 {
-    private Enemy _target;
+    private Enemy123 _target;
     private Vector3 _startPos;
     private Vector3 _lastTargetPos;
     private int _damage;
@@ -11,7 +11,7 @@ public class BarrageProjectile : MonoBehaviour
     private float _t;
     private DefaultObjectPool _pool;
 
-    public void Init(Vector3 startPos, Enemy target, int damage, float projectileSpeed, float arcHeight, DefaultObjectPool pool)
+    public void Init(Vector3 startPos, Enemy123 target, int damage, float projectileSpeed, float arcHeight, DefaultObjectPool pool)
     {
         _startPos = startPos;
         _target = target;
@@ -30,7 +30,7 @@ public class BarrageProjectile : MonoBehaviour
         transform.position = startPos;
     }
 
-    private void OnTargetDied(Enemy enemy)
+    private void OnTargetDied(Enemy123 enemy)
     {
         enemy.OnDeath -= OnTargetDied;
         enemy.UnregisterIncoming(_damage);

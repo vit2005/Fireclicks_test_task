@@ -11,7 +11,7 @@ public class FireballImplementation : SpellImplementation
 
     private void Awake() => RuntimeAoeRadius = fireballConfig.AoeRadius;
 
-    public override void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy> targets)
+    public override void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy123> targets)
     {
         if (targets.Count == 0) return;
 

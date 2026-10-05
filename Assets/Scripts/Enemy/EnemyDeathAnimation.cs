@@ -1,10 +1,10 @@
 using DG.Tweening;
 using UnityEngine;
 
-[RequireComponent(typeof(Enemy))]
+[RequireComponent(typeof(Enemy123))]
 public class EnemyDeathAnimation : MonoBehaviour
 {
-    [SerializeField] private Enemy enemy;
+    [SerializeField] private Enemy123 enemy;
     [SerializeField] private float duration = 0.1f;
 
     private void Awake()
@@ -17,7 +17,7 @@ public class EnemyDeathAnimation : MonoBehaviour
         enemy.OnDeath -= PlayDeathAnimation;
     }
 
-    private void PlayDeathAnimation(Enemy e)
+    private void PlayDeathAnimation(Enemy123 e)
     {
         DOTween.Kill(transform);
         transform.DOScale(Vector3.zero, duration)

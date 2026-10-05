@@ -1,14 +1,14 @@
 using System;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy123 : MonoBehaviour
 {
     [SerializeField] private Health health;
     [SerializeField] private EffectHandler effectHandler;
     [SerializeField] private EnemyMovement movement;
 
-    public event Action<Enemy> OnDeath;
-    public event Action<Enemy> OnReadyToReturn;
+    public event Action<Enemy123> OnDeath;
+    public event Action<Enemy123> OnReadyToReturn;
 
     public Health Health => health;
     public EffectHandler EffectHandler => effectHandler;

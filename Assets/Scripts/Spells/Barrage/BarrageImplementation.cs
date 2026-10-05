@@ -8,11 +8,11 @@ public class BarrageImplementation : SpellImplementation
 
     public int RuntimeMaxTargets { get; set; }
 
-    private readonly List<Enemy> _visibleBuffer = new();
+    private readonly List<Enemy123> _visibleBuffer = new();
 
     private void Awake() => RuntimeMaxTargets = barrageConfig.MaxTargets;
 
-    public override void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy> targets)
+    public override void Cast(Transform origin, RuntimeSpellStats stats, IReadOnlyList<Enemy123> targets)
     {
         if (targets.Count == 0) return;
 
@@ -27,7 +27,7 @@ public class BarrageImplementation : SpellImplementation
             SpawnProjectile(origin.position, _visibleBuffer[i], stats);
     }
 
-    private void BuildVisibleList(IReadOnlyList<Enemy> targets)
+    private void BuildVisibleList(IReadOnlyList<Enemy123> targets)
     {
         _visibleBuffer.Clear();
 
@@ -40,7 +40,7 @@ public class BarrageImplementation : SpellImplementation
         }
     }
 
-    private void SpawnProjectile(Vector3 origin, Enemy target, RuntimeSpellStats stats)
+    private void SpawnProjectile(Vector3 origin, Enemy123 target, RuntimeSpellStats stats)
     {
         GameObject obj = projectilePool.GetInstance();
         if (obj.TryGetComponent<BarrageProjectile>(out var projectile))

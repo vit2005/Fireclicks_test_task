@@ -31,7 +31,7 @@ public class SpellCaster : MonoBehaviour
 
     private void Update()
     {
-        IReadOnlyList<Enemy> targets = enemySpawner.ActiveEnemies;
+        IReadOnlyList<Enemy123> targets = enemySpawner.ActiveEnemies;
 
         foreach (var slot in _slots)
         {

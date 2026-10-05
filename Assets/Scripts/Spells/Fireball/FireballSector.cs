@@ -16,7 +16,7 @@ public class FireballSector : MonoBehaviour
         Collider[] hits = Physics.OverlapBox(worldCenter, halfExtents, transform.rotation);
         int count = 0;
         foreach (var hit in hits)
-            if (hit.TryGetComponent<Enemy>(out _)) count++;
+            if (hit.TryGetComponent<Enemy123>(out _)) count++;
         return count;
     }
 }
